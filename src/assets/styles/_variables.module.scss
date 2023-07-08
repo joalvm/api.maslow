@@ -1,0 +1,32 @@
+$primary : #6b2881 !default;
+$secondary : #5FD6BC !default;
+
+$success: #00e676 !default;
+$error: #f44336 !default;
+$warning: #ffe57f !default;
+$info: #2196f3 !default;
+
+$listItemHover: lighten(#5FD6BC, 35%) !default;
+$listItemSelected: lighten(#5FD6BC, 30%) !default;
+
+
+:export {
+    primary : $primary;
+    secondary : $secondary;
+
+    success: $success;
+    error: $error;
+    warning: $warning;
+    info: $info;
+
+    listItemHover: $listItemHover;
+    listItemSelected: $listItemSelected;
+
+    // light
+    lightBackground : #eef0f8;
+    lightPaper : #ffffff;
+
+    // dark
+    darkPaper : #212121;
+    darkBackground : #212121;
+}
