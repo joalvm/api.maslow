@@ -44,12 +44,10 @@ export default function ThemeContextProvider({ children }: PropsWithChildren) {
     );
 
     return (
-        <context.Provider value={value}>
-            <ThemeProvider theme={theme}>
-                <CssBaseline />
-                {children}
-            </ThemeProvider>
-        </context.Provider>
+        <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <context.Provider value={value}>{children}</context.Provider>
+        </ThemeProvider>
     );
 }
 

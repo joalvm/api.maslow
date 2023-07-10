@@ -1,11 +1,14 @@
-import Button from '@mui/material/Button';
+import { Helmet } from 'react-helmet-async';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
+import router from './router/router';
+import titlePage from './utils/title-page.util';
 
 export default function App() {
     return (
-        <div className='App'>
-            <Button variant='outlined' color='primary'>
-                Clickme
-            </Button>
-        </div>
+        <>
+            <Helmet title={titlePage()} />
+            <RouterProvider router={createBrowserRouter(router)} />
+        </>
     );
 }

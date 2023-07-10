@@ -12,26 +12,11 @@ export default function createTheme(mode: 'dark' | 'light'): Theme {
             direction: 'ltr',
             palette,
             components: {
-                MuiListItemButton: {
+                MuiButton: {
                     styleOverrides: {
-                        root: {
-                            paddingTop: '5px',
-                            paddingBottom: '5px',
-                        },
-                    },
-                },
-                MuiListItemIcon: {
-                    styleOverrides: {
-                        root: {
-                            color: palette.text?.primary,
-                            minWidth: '36px',
-                        },
-                    },
-                },
-                MuiListItemText: {
-                    styleOverrides: {
-                        primary: {
-                            color: palette.text?.primary,
+                        startIcon: {
+                            marginRight: '0.5rem',
+                            fontSize: '.5rem',
                         },
                     },
                 },

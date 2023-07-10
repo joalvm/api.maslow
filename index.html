@@ -15,9 +15,27 @@
     <!-- <link rel="apple-touch-icon" href="/logo192.png" /> -->
     <link rel="manifest" href="/manifest.json" />
     <title>Maslow App</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            font-family: sans-serif;
+            height: 100svh;
+            width: 100svw;
+            background-color: #f5f5f5;
+        }
+
+        #root {
+            height: inherit;
+            width: inherit;
+            display: flex;
+            flex-grow: 1;
+        }
+    </style>
 </head>
 
-<body class="bg-background font-sans antialiased">
+<body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
 </body>

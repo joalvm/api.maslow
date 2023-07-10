@@ -6,10 +6,6 @@ $error: #f44336 !default;
 $warning: #ffe57f !default;
 $info: #2196f3 !default;
 
-$listItemHover: lighten(#5FD6BC, 35%) !default;
-$listItemSelected: lighten(#5FD6BC, 30%) !default;
-
-
 :export {
     primary : $primary;
     secondary : $secondary;
@@ -19,11 +15,8 @@ $listItemSelected: lighten(#5FD6BC, 30%) !default;
     warning: $warning;
     info: $info;
 
-    listItemHover: $listItemHover;
-    listItemSelected: $listItemSelected;
-
     // light
-    lightBackground : #eef0f8;
+    lightBackground : #fff;
     lightPaper : #ffffff;
 
     // dark

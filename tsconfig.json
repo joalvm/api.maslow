@@ -19,10 +19,19 @@
         "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": true,
         "paths": {
-            "@app/*": ["src/*"]
+            "@app/*": ["src/*"],
+            "@api/*": ["api/*"]
         }
     },
-    "include": ["src", ".eslintrc.cjs", "vite.config.ts", "tailwind.config.js", "postcss.config.js", "vite-env.d.ts"],
+    "include": [
+        "src",
+        "api",
+        ".eslintrc.cjs",
+        "vite.config.ts",
+        "tailwind.config.js",
+        "postcss.config.js",
+        "vite-env.d.ts"
+    ],
     "exclude": ["node_modules", "dist", "build"],
     "references": [{ "path": "./tsconfig.node.json" }]
 }
