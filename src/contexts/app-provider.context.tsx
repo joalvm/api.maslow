@@ -15,6 +15,6 @@ export default function AppProvider({ children }: PropsWithChildren) {
     return <context.Provider value={value}>{children}</context.Provider>;
 }
 
-export function useAppProviderContext() {
+export function useAppContext() {
     return useContext(context);
 }

@@ -8,6 +8,9 @@ import Input from '@app/components/forms/input.component';
 import Switch from '@app/components/forms/switch.component';
 import { useAuthProviderContext } from '@app/contexts/auth-provider.context';
 import { zodResolver } from '@hookform/resolvers/zod';
+import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
+import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
+import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import LoadingButton from '@mui/lab/LoadingButton';
 import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
@@ -15,7 +18,6 @@ import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
-import { EyeIcon, EyeOffIcon, LogInIcon } from 'lucide-react';
 import { useCallback, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
@@ -29,6 +31,7 @@ export default function LoginForm() {
     const [errorRequest, setErrorRequest] = useState<string>('');
     const [showPassword, setShowPassword] = useState<boolean>(false);
     const { authenticated } = useAuthProviderContext();
+
     const form = useForm<LoginInput>({
         resolver: zodResolver(loginValidator),
         defaultValues,
@@ -38,7 +41,6 @@ export default function LoginForm() {
     const onSubmit = useCallback(async (values: LoginInput): Promise<void> => {
         try {
             const response = await login(values);
-
             const { token, expire_at: expiredAt } = response.data;
             const sessionProfile = await profile(token);
 
@@ -76,7 +78,7 @@ export default function LoginForm() {
                     fullWidth
                     endAdornment={
                         <IconButton type='button' onClick={toggleShowPassword}>
-                            {showPassword ? <EyeOffIcon size={24} /> : <EyeIcon size={24} />}
+                            {showPassword ? <VisibilityOffOutlinedIcon /> : <VisibilityOutlinedIcon />}
                         </IconButton>
                     }
                 />
@@ -87,7 +89,8 @@ export default function LoginForm() {
                     variant='contained'
                     loading={form.formState.isSubmitting}
                     loadingPosition='start'
-                    startIcon={<LogInIcon size={18} />}>
+                    startIcon={<LoginOutlinedIcon />}
+                >
                     Iniciar Sesión
                 </LoadingButton>
                 <Divider />

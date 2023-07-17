@@ -1,10 +1,10 @@
 import ManagerPage from '@app/pages/manager/manager.page';
 
-import managerNavigator from './manager.navigator';
+import nav from '../navigation/manager.navigate';
 
 export default {
-    id: managerNavigator.id,
-    path: managerNavigator.path,
+    id: nav.index.id,
+    path: nav.index.path,
     element: <ManagerPage />,
     children: [],
 };

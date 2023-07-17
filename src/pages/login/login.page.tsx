@@ -1,15 +1,13 @@
 import PanelSide from '@app/assets/images/login-panel.jpg';
-import Logo from '@app/assets/images/logos/logo.png';
 import Copyright from '@app/components/copyright.component';
 import titlePage from '@app/utils/title-page.util';
 import { styled } from '@mui/material';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import Stack from '@mui/material/Stack';
-import Typography from '@mui/material/Typography';
 import { Helmet } from 'react-helmet-async';
 
 import LoginForm from './components/login-form.component';
+import LoginHeading from './components/login-heading.component';
 
 const RightSide = styled(Grid)(({ theme }) => ({
     backgroundImage: `url(${PanelSide})`,
@@ -26,11 +24,6 @@ const LeftSide = styled(Grid)({
     alignContent: 'center',
 });
 
-const LogoImage = styled('img')({
-    height: 'auto',
-    marginBottom: '14px',
-});
-
 export default function LoginPage() {
     return (
         <>
@@ -38,15 +31,7 @@ export default function LoginPage() {
             <Grid container spacing={0}>
                 <LeftSide item xs={12} sm={8} md={6} lg={5}>
                     <Box>
-                        <Stack spacing={0} flex='flex' alignContent='center' alignItems='center' mb={4}>
-                            <LogoImage src={Logo} alt='Logo Maslow Perú' />
-                            <Typography component='h1' variant='h6'>
-                                Iniciar Sesión
-                            </Typography>
-                            <Typography component='small' variant='body2'>
-                                Ingrese sus credenciales para acceder a su cuenta.
-                            </Typography>
-                        </Stack>
+                        <LoginHeading />
                         <LoginForm />
                     </Box>
                     <Box sx={{ position: 'absolute', bottom: 10 }}>

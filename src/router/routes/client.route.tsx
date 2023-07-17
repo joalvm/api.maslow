@@ -1,11 +1,11 @@
 import ClientPage from '@app/pages/client/client.page';
 import { RouteObject } from 'react-router-dom';
 
-import clientNavigator from './client.navigator';
+import nav from '../navigation/client.navigate';
 
 export default {
-    id: clientNavigator.id,
-    path: clientNavigator.path,
+    id: nav.index.id,
+    path: nav.index.path,
     element: <ClientPage />,
     children: [],
 } as RouteObject;

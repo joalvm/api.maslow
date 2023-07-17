@@ -6,10 +6,10 @@ const config = {
     singleQuote: true,
     printWidth: 120,
     jsxSingleQuote: true,
-    jsxBracketSameLine: true,
+    jsxBracketSameLine: false,
     arrowParens: 'always',
     useTabs: false,
     endOfLine: 'lf',
-}
+};
 
-module.exports = config
+module.exports = config;

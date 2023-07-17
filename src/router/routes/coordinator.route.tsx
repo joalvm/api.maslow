@@ -1,23 +1,23 @@
 import CoordinatorPage from '@app/pages/coordinator/coordinator.page';
+import CoordinatorProfilePage from '@app/pages/coordinator/profile/profile.page';
 import { RouteObject } from 'react-router-dom';
 
-import navigator from './coordinator.navigator';
+import { client, index, profile, team } from '../navigation/coordinator.navigate';
 
-const { root, profile, client, team } = navigator;
 const { clients, collaborators, headquartes, workerTypes } = client.children;
 
 export default {
-    path: root.path,
+    id: index.id,
+    path: index.path,
     children: [
         {
-            id: root.id,
             index: true,
             element: <CoordinatorPage />,
         },
         {
             id: profile.id,
             path: profile.path,
-            element: <div>Profile</div>,
+            element: <CoordinatorProfilePage />,
         },
         {
             id: team.id,

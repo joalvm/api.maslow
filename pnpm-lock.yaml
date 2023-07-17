@@ -20,15 +20,15 @@ dependencies:
   '@mui/base':
     specifier: 5.0.0-beta.6
     version: 5.0.0-beta.6(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0)
+  '@mui/icons-material':
+    specifier: ^5.14.0
+    version: 5.14.0(@mui/material@5.13.7)(@types/react@18.2.14)(react@18.2.0)
   '@mui/lab':
     specifier: 5.0.0-alpha.135
     version: 5.0.0-alpha.135(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@mui/material@5.13.7)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0)
   '@mui/material':
     specifier: ^5.13.7
     version: 5.13.7(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0)
-  lucide-react:
-    specifier: ^0.259.0
-    version: 0.259.0(react@18.2.0)
   react:
     specifier: ^18.2.0
     version: 18.2.0
@@ -1817,6 +1817,23 @@ packages:
 
   /@mui/core-downloads-tracker@5.13.7:
     resolution: {integrity: sha512-/suIo4WoeL/OyO3KUsFVpdOmKiSAr6NpWXmQ4WLSxwKrTiha1FJxM6vwAki5W/5kR9WnVLw5E8JC4oHHsutT8w==}
+    dev: false
+
+  /@mui/icons-material@5.14.0(@mui/material@5.13.7)(@types/react@18.2.14)(react@18.2.0):
+    resolution: {integrity: sha512-z7lYNteDi1GMkF9JP/m2RWuCYK1M/FlaeBSUK7/IhIYzIXNhAVjfD8jRq5vFBV31qkEi2aGBS2z5SfLXwH6U0A==}
+    engines: {node: '>=12.0.0'}
+    peerDependencies:
+      '@mui/material': ^5.0.0
+      '@types/react': ^17.0.0 || ^18.0.0
+      react: ^17.0.0 || ^18.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.22.6
+      '@mui/material': 5.13.7(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0)
+      '@types/react': 18.2.14
+      react: 18.2.0
     dev: false
 
   /@mui/lab@5.0.0-alpha.135(@emotion/react@11.11.1)(@emotion/styled@11.11.0)(@mui/material@5.13.7)(@types/react@18.2.14)(react-dom@18.2.0)(react@18.2.0):
@@ -4225,14 +4242,6 @@ packages:
     dependencies:
       yallist: 4.0.0
     dev: true
-
-  /lucide-react@0.259.0(react@18.2.0):
-    resolution: {integrity: sha512-dFBLc6jRDfcpD9NQ7NyFVa+YR3RHX6+bs+f/UiotvNPho+kd4WyeXWMCCchUf7i/pq3BAaHkbmtkbx/GxxHVUw==}
-    peerDependencies:
-      react: ^16.5.1 || ^17.0.0 || ^18.0.0
-    dependencies:
-      react: 18.2.0
-    dev: false
 
   /magic-string@0.30.1:
     resolution: {integrity: sha512-mbVKXPmS0z0G4XqFDCTllmDQ6coZzn94aMlb0o/A4HEHJCKcanlDZwYJgwnkmgD3jyWhUgj9VsPrfd972yPffA==}
