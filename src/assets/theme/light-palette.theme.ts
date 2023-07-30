@@ -10,6 +10,11 @@ export default function lightPalette() {
             default: scss.lightBackground,
             paper: scss.lightPaper,
         },
+        text: {
+            primary: scss.lightTextPrimary,
+            secondary: scss.lightTextSecondary,
+            disabled: scss.lightTextDisabled,
+        },
         primary: {
             main: scss.primary,
         },

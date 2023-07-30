@@ -11,7 +11,7 @@ export type NavItem = {
     path: string;
     title: string;
     type: NavItemType;
-    Icon?: typeof SvgIcon | null;
+    Icon?: typeof SvgIcon;
     children: NavItems;
 };
 

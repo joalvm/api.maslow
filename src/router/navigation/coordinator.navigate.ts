@@ -16,7 +16,7 @@ const index = navItem(ROOT_PATH, 'Dashboard', DashboardOutlinedIcon);
 
 const profile = navInnerItem('profile', 'Perfil');
 
-const team = navGroupItem('team', 'Equipo', GroupsOutlinedIcon, {
+const team = navItem('team', 'Equipo', GroupsOutlinedIcon, {
     create: navInnerItem('create', 'Crear'),
     edit: navInnerItem(':id', 'Editar'),
 });

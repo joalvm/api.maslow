@@ -12,7 +12,7 @@ const Main = styled(Box, {
 })<{ open: boolean }>(({ theme, open }) => ({
     flexGrow: 1,
     position: 'relative',
-    height: '100vh',
+    height: `calc(100vh - 64px)`,
     display: 'flex',
     flexDirection: 'column',
     marginLeft: open ? SIDEBAR_WIDTH : 0,
@@ -30,11 +30,11 @@ export default function AdminLayout({ children }: PropsWithChildren) {
 
     return (
         <Box flexGrow={1} position='relative'>
-            {/* Sidebar Panel */}
-            <Sidebar />
+            <AppBar />
             {/* Navbar and container Panel */}
-            <Main open={!isMobile && sidebarOpened}>
-                <AppBar />
+            <Main open={!isMobile && sidebarOpened} sx={{ pt: 8 }}>
+                {/* Sidebar Panel */}
+                <Sidebar />
                 <Box flexGrow={1} display='flex' position='relative'>
                     <Container maxWidth='xl' disableGutters={isMobile} component='main'>
                         {children}

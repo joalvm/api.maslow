@@ -19,6 +19,7 @@ export interface AuthContext {
     profile: Profile | null;
     currentClient: ClientBasic | null;
     clients: ClientBasic[];
+    expiredAt: Date | null;
     userNavigationItems: ReturnType<typeof getUserNavigationItems>;
     selectCurrentClient: (clientId: number) => void;
     authenticated: (token: string, expiredAt: Date, sessionProfile: Profile) => void;
@@ -30,8 +31,11 @@ const context = createContext<AuthContext>({} as AuthContext);
 export default function AuthProvider() {
     const { cache } = useAppContext();
 
-    const token = cache.get<string>(TOKEN_KEY);
-    const expiredAt = cache.get<number>(EXPIRED_AT_TOKEN);
+    const bearerToken = cache.get<string>(TOKEN_KEY);
+    const tokenExpiredAt = cache.get<number>(EXPIRED_AT_TOKEN);
+
+    const [token, setToken] = useState<string | null>(bearerToken ?? null);
+    const [expiredAt, setExpireAt] = useState<Date | null>(tokenExpiredAt ? new Date(tokenExpiredAt) : null);
 
     const [profile, setProfile] = useState(cache.get<Profile>(PROFILE_KEY));
     const [currentClient, setCurrentClient] = useState(cache.get<ClientBasic>(CURRENT_CLIENT));
@@ -51,11 +55,15 @@ export default function AuthProvider() {
         setRole(undefined);
         setClients([]);
         setCurrentClient(null);
+        setExpireAt(null);
+        setToken(null);
+
+        Connection.bearerToken = null;
     };
 
     useEffect(() => {
         if (token && expiredAt) {
-            if (new Date().getTime() > expiredAt) {
+            if (new Date() > expiredAt) {
                 logout();
                 return;
             }
@@ -65,9 +73,7 @@ export default function AuthProvider() {
             setRole(profile?.user?.role);
             setClients(profile?.clients ?? []);
 
-            const expiredAtDate = new Date(expiredAt);
-
-            if (expiredAtDate.getTime() > new Date().getTime()) {
+            if (expiredAt.getTime() > new Date().getTime()) {
                 setIsAuthenticated(true);
             }
 
@@ -88,16 +94,18 @@ export default function AuthProvider() {
         }
     };
 
-    const authenticated = (bearerToken: string, sessionExpireAt: Date, sessionProfile: Profile) => {
+    const authenticated = (sessionToken: string, sessionExpireAt: Date, sessionProfile: Profile) => {
         cache.set({
-            [TOKEN_KEY]: bearerToken,
+            [TOKEN_KEY]: sessionToken,
             [EXPIRED_AT_TOKEN]: sessionExpireAt.getTime(),
             [PROFILE_KEY]: sessionProfile,
         });
 
-        Connection.bearerToken = bearerToken;
+        Connection.bearerToken = sessionToken;
 
         setProfile(sessionProfile);
+        setExpireAt(sessionExpireAt);
+        setToken(sessionToken);
         setRole(sessionProfile?.user?.role ?? null);
         setClients(sessionProfile?.clients ?? []);
         setIsAuthenticated(true);
@@ -116,6 +124,7 @@ export default function AuthProvider() {
             selectCurrentClient,
             currentClient,
             userNavigationItems,
+            expiredAt,
         }),
         [isAuthenticated, authenticated, profile, role, clients, setClients, selectCurrentClient, currentClient],
     );

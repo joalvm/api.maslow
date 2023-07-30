@@ -11,7 +11,7 @@ export default function MenuItemProfile() {
     } = useAuthProviderContext();
 
     return (
-        <MenuItem {...{ component: Link }} LinkComponent={Link} to={profile.path}>
+        <MenuItem {...{ component: Link }} dense LinkComponent={Link} to={profile.path}>
             <ListItemIcon>
                 <AccountCircleOutlinedIcon />
             </ListItemIcon>

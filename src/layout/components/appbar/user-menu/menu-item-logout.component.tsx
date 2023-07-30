@@ -12,7 +12,7 @@ export default function MenuItemLogout() {
     };
 
     return (
-        <MenuItem onClick={handleLogout}>
+        <MenuItem dense onClick={handleLogout}>
             <ListItemIcon>
                 <LogoutOutlinedIcon />
             </ListItemIcon>

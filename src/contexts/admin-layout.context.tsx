@@ -4,7 +4,7 @@ import { useTheme } from '@mui/material/styles';
 import { createContext, Dispatch, SetStateAction, useContext, useMemo, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
-export const SIDEBAR_WIDTH = 240;
+export const SIDEBAR_WIDTH = 280;
 
 export interface AdminLayoutContext {
     isMobile: boolean;

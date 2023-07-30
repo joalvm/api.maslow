@@ -13,7 +13,7 @@ import { ApiError, HttpRequestConfig, ResponseError } from './interface';
 export default class Connection {
     public static http: AxiosInstance;
 
-    public static bearerToken = '';
+    public static bearerToken: string | null = null;
 
     public static clientId: number | null = null;
 
@@ -51,7 +51,6 @@ export default class Connection {
         // After response
         Connection.http.interceptors.response.use(
             (response: AxiosResponse<T, D>) => {
-                console.log('axios response', response);
                 return response;
             },
             (error: AxiosError<ResponseError<T>, D>): Promise<ApiError<T, D>> => {

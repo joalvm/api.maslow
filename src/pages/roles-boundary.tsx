@@ -1,4 +1,5 @@
 import { useAuthProviderContext } from '@app/contexts/auth-provider.context';
+import { useEffect } from 'react';
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
 
 /**
@@ -9,9 +10,17 @@ import { Navigate, Outlet, useLocation } from 'react-router-dom';
  * @returns
  */
 export default function RolesBoundary() {
-    const { isAuthenticated, currentClient, userNavigationItems } = useAuthProviderContext();
+    const { isAuthenticated, currentClient, logout, expiredAt, userNavigationItems } = useAuthProviderContext();
     const location = useLocation();
     let to = '';
+
+    // Cuando el usuario se mueve entre las rutas se revisa la expiración del token.
+    useEffect(() => {
+        if (expiredAt && new Date().getTime() > expiredAt.getTime()) {
+            console.log(`Token expired at ${expiredAt.toLocaleString()}.`);
+            logout();
+        }
+    }, [location]);
 
     if (!isAuthenticated) {
         if (location.pathname !== userNavigationItems.home.path) {

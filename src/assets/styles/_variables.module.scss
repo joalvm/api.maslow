@@ -1,14 +1,22 @@
-$primary : #6b2881 !default;
-$secondary : #5FD6BC !default;
+$primary: #6b2881 !default;
+$secondary: #5fd6bc !default;
 
 $success: #00e676 !default;
 $error: #f44336 !default;
 $warning: #ffe57f !default;
 $info: #2196f3 !default;
 
+$lightTextPrimary: #37474f !default;
+$lightTextSecondary: #607d8b !default;
+$lightTextDisabled: #b0bec5 !default;
+
+$darkTextPrimary: #ffffff !default;
+$darkTextSecondary: #ffffff !default;
+$darkTextDisabled: #f1f1f1 !default;
+
 :export {
-    primary : $primary;
-    secondary : $secondary;
+    primary: $primary;
+    secondary: $secondary;
 
     success: $success;
     error: $error;
@@ -16,10 +24,18 @@ $info: #2196f3 !default;
     info: $info;
 
     // light
-    lightBackground : #fff;
-    lightPaper : #ffffff;
+    lightBackground: #fff;
+    lightPaper: #ffffff;
+
+    lightTextPrimary: $lightTextPrimary;
+    lightTextSecondary: $lightTextSecondary;
+    lightTextDisabled: $lightTextDisabled;
 
     // dark
-    darkPaper : #212121;
-    darkBackground : #212121;
+    darkPaper: #212121;
+    darkBackground: #212121;
+
+    darkTextPrimary: $darkTextPrimary;
+    darkTextSecondary: $darkTextSecondary;
+    darkTextDisabled: $darkTextDisabled;
 }

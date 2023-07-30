@@ -1,9 +1,6 @@
-import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
-import { Typography } from '@mui/material';
 import Appbar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
 
@@ -12,30 +9,26 @@ import AppBarUserButton from './appbar-user-button.component';
 
 export default function AppBar() {
     return (
-        <Appbar component='header' position='static'>
-            <Toolbar variant='dense'>
-                <Box flexGrow={0}>
+        <Appbar
+            component='header'
+            position='fixed'
+            color='inherit'
+            elevation={1}
+            sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
+            // sx={{
+            //     flexGrow: 0,
+            //     ml: { sm: 0, md: !isMobile && sidebarOpened ? `${SIDEBAR_WIDTH}px` : 0 },
+            //     width: { sm: '100%', md: !isMobile && sidebarOpened ? `calc(100% - ${SIDEBAR_WIDTH}px)` : '100%' },
+            // }}
+        >
+            <Toolbar>
+                <Box flexGrow={1}>
                     <AppBarMenuButton />
                 </Box>
-                <Box flexGrow={1}>
-                    <Button
-                        id='demo-customized-button'
-                        aria-haspopup='true'
-                        variant='contained'
-                        disableElevation
-                        disableRipple
-                        disableTouchRipple
-                        endIcon={<KeyboardArrowDownOutlinedIcon />}
-                    >
-                        Cliente
-                    </Button>
-                </Box>
-                <Box flexGrow={0} sx={{ mr: 1 }}>
+                <Box flexGrow={0} flexDirection='column' columnGap={10}>
                     <IconButton color='inherit'>
                         <NotificationsNoneOutlinedIcon />
                     </IconButton>
-                </Box>
-                <Box sx={{ flexGrow: 0 }}>
                     <AppBarUserButton />
                 </Box>
             </Toolbar>
