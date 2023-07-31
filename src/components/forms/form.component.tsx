@@ -1,4 +1,4 @@
-import { Box, BoxProps } from '@mui/material';
+import Box, { BoxProps } from '@mui/material/Box';
 import { FieldValues, FormProvider, FormProviderProps } from 'react-hook-form';
 
 export type FormProps<TFieldValues extends FieldValues = FieldValues> = FormProviderProps<

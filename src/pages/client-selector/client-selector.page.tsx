@@ -1,11 +1,13 @@
 import Logo from '@app/assets/images/logos/logo.png';
 import Copyright from '@app/components/copyright.component';
 import { useAuthProviderContext } from '@app/contexts/auth-provider.context';
-import { Button, Stack, styled } from '@mui/material';
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 import MuiContainer from '@mui/material/Container';
 import List from '@mui/material/List';
 import ListSubheader from '@mui/material/ListSubheader';
+import Stack from '@mui/material/Stack';
+import { styled } from '@mui/material/styles';
 import { useCallback, useState } from 'react';
 
 import ListItemClient from './components/client-selector-list-item-client.component';
@@ -58,7 +60,8 @@ export default function ClientSelectorPage() {
                             bgcolor: 'background.paper',
                             mb: 4,
                         }}
-                        subheader={<ListSubheader>Seleccione un cliente</ListSubheader>}>
+                        subheader={<ListSubheader>Seleccione un cliente</ListSubheader>}
+                    >
                         {clients.map((client, index) => (
                             <ListItemClient
                                 key={client.id}
@@ -75,7 +78,8 @@ export default function ClientSelectorPage() {
                     spacing={2}
                     width='100%'
                     alignItems='stretch'
-                    justifyContent='center'>
+                    justifyContent='center'
+                >
                     <Button fullWidth variant='text' color='inherit' onClick={handleCancel}>
                         Cancelar
                     </Button>

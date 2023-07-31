@@ -14,9 +14,9 @@ export default function MenuItemLogout() {
     return (
         <MenuItem dense onClick={handleLogout}>
             <ListItemIcon>
-                <LogoutOutlinedIcon />
+                <LogoutOutlinedIcon sx={{ color: 'text.secondary' }} />
             </ListItemIcon>
-            <ListItemText>Cerrar Sessión</ListItemText>
+            <ListItemText primary='Cerrar Sessión' />
         </MenuItem>
     );
 }

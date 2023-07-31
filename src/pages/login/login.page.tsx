@@ -1,9 +1,9 @@
 import PanelSide from '@app/assets/images/login-panel.jpg';
 import Copyright from '@app/components/copyright.component';
 import titlePage from '@app/utils/title-page.util';
-import { styled } from '@mui/material';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
+import { styled } from '@mui/material/styles';
 import { Helmet } from 'react-helmet-async';
 
 import LoginForm from './components/login-form.component';

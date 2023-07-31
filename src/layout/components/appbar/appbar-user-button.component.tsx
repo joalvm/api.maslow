@@ -33,6 +33,7 @@ export default function AppBarUserButton() {
                 anchorOrigin={{ vertical: 'bottom', horizontal: 'left' }}
                 keepMounted
                 transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+                sx={{ marginLeft: 4 }}
                 open={Boolean(anchorElUser)}
                 onClose={handleCloseUserMenu}
             >

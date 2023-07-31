@@ -1,4 +1,4 @@
-import { ListItemIcon } from '@mui/material';
+import ListItemIcon from '@mui/material/ListItemIcon';
 import SvgIcon from '@mui/material/SvgIcon';
 
 export interface SidebarNavItemIconProps {
@@ -10,7 +10,7 @@ export default function SidebarNavItemIcon({ Icon }: SidebarNavItemIconProps) {
     if (!Icon) return null;
 
     return (
-        <ListItemIcon sx={{ minWidth: 36 }}>
+        <ListItemIcon sx={{ minWidth: 28 }}>
             {Icon && <Icon fontSize='small' sx={{ color: 'text.secondary' }} />}
         </ListItemIcon>
     );

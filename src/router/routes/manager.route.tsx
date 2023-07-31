@@ -1,10 +1,20 @@
 import ManagerPage from '@app/pages/manager/manager.page';
+import { RouteObject } from 'react-router-dom';
 
-import nav from '../navigation/manager.navigate';
+import { index, profile } from '../navigation/manager.navigate';
 
 export default {
-    id: nav.index.id,
-    path: nav.index.path,
-    element: <ManagerPage />,
-    children: [],
-};
+    id: index.id,
+    path: index.path,
+    children: [
+        {
+            index: true,
+            element: <ManagerPage />,
+        },
+        {
+            id: profile.id,
+            path: profile.path,
+            element: <div>Profile</div>,
+        },
+    ],
+} as RouteObject;

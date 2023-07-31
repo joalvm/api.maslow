@@ -1,10 +1,10 @@
 import AdminLayout from '@app/layout/admin.layout';
-import { useMediaQuery } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { createContext, Dispatch, SetStateAction, useContext, useMemo, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
-export const SIDEBAR_WIDTH = 280;
+export const SIDEBAR_WIDTH = 240;
 
 export interface AdminLayoutContext {
     isMobile: boolean;

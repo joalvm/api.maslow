@@ -4,7 +4,7 @@ import { v4 } from 'uuid';
 export default function navItem<C extends Record<string, NavItem>>(
     path: string,
     title: string,
-    Icon: NavItem['Icon'] = null,
+    Icon?: NavItem['Icon'],
     children: C = {} as C,
 ): NavItem {
     return {

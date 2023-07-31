@@ -1,4 +1,4 @@
-import { Typography } from '@mui/material';
+import Typography from '@mui/material/Typography';
 import { PropsWithChildren } from 'react';
 import { Link } from 'react-router-dom';
 

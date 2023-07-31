@@ -1,5 +1,7 @@
 import createTheme from '@app/assets/theme/theme';
-import { CssBaseline, Theme, ThemeProvider, useMediaQuery } from '@mui/material';
+import CssBaseline from '@mui/material/CssBaseline';
+import { Theme, ThemeProvider } from '@mui/material/styles';
+import useMediaQuery from '@mui/material/useMediaQuery';
 import { createContext, PropsWithChildren, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 
 export type ColorSchema = 'light' | 'dark' | 'system';

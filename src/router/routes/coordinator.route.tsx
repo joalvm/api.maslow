@@ -2,9 +2,11 @@ import CoordinatorPage from '@app/pages/coordinator/coordinator.page';
 import CoordinatorProfilePage from '@app/pages/coordinator/profile/profile.page';
 import { RouteObject } from 'react-router-dom';
 
-import { client, index, profile, team } from '../navigation/coordinator.navigate';
+import { client, config, incidence, index, profile, team } from '../navigation/coordinator.navigate';
 
-const { clients, collaborators, headquartes, workerTypes } = client.children;
+const { clients, collaborators, headquartes, workerTypes, tags } = client.children;
+const { attentionTypes, careCenterTypes } = config.children;
+const { attentions, incidences, requests } = incidence.children;
 
 export default {
     id: index.id,
@@ -47,6 +49,48 @@ export default {
                     id: workerTypes.id,
                     path: workerTypes.path,
                     element: <div>Worker Types</div>,
+                },
+                {
+                    id: tags.id,
+                    path: tags.path,
+                    element: <div>Tags</div>,
+                },
+            ],
+        },
+        {
+            id: config.id,
+            path: config.path,
+            children: [
+                {
+                    id: attentionTypes.id,
+                    path: attentionTypes.path,
+                    element: <div>Attention Types</div>,
+                },
+                {
+                    id: careCenterTypes.id,
+                    path: careCenterTypes.path,
+                    element: <div>Care Center Types</div>,
+                },
+            ],
+        },
+        {
+            id: incidence.id,
+            path: incidence.path,
+            children: [
+                {
+                    index: true,
+                    id: incidences.id,
+                    element: <div>Incidences</div>,
+                },
+                {
+                    id: attentions.id,
+                    path: attentions.path,
+                    element: <div>Attentions</div>,
+                },
+                {
+                    id: requests.id,
+                    path: requests.path,
+                    element: <div>Requests</div>,
                 },
             ],
         },

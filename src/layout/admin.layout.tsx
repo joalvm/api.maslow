@@ -31,9 +31,7 @@ export default function AdminLayout({ children }: PropsWithChildren) {
     return (
         <Box flexGrow={1} position='relative'>
             <AppBar />
-            {/* Navbar and container Panel */}
             <Main open={!isMobile && sidebarOpened} sx={{ pt: 8 }}>
-                {/* Sidebar Panel */}
                 <Sidebar />
                 <Box flexGrow={1} display='flex' position='relative'>
                     <Container maxWidth='xl' disableGutters={isMobile} component='main'>

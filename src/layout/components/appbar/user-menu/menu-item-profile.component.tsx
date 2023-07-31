@@ -13,9 +13,9 @@ export default function MenuItemProfile() {
     return (
         <MenuItem {...{ component: Link }} dense LinkComponent={Link} to={profile.path}>
             <ListItemIcon>
-                <AccountCircleOutlinedIcon />
+                <AccountCircleOutlinedIcon sx={{ color: 'text.secondary' }} />
             </ListItemIcon>
-            <ListItemText>Mi Perfil</ListItemText>
+            <ListItemText primary='Mi Perfil' />
         </MenuItem>
     );
 }
