@@ -28,6 +28,7 @@ const Input = <TFieldValues extends FieldValues = FieldValues>({
             name={name}
             control={control}
             render={({ field }) => (
+                /* Convertir el filled a outlined */
                 <FormControl fullWidth variant='outlined' disabled={formState.isSubmitting}>
                     <InputLabel id={`${id}-label`} htmlFor={`${id}-input`}>
                         {label}

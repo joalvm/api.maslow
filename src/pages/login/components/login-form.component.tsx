@@ -4,22 +4,20 @@ import profile from '@api/resources/session/application/profile.service';
 import { LoginInput } from '@api/resources/session/domain/login/login.interface';
 import { loginValidator } from '@api/resources/session/domain/login/login.validator';
 import Form from '@app/components/forms/form.component';
-import Input from '@app/components/forms/input.component';
 import Switch from '@app/components/forms/switch.component';
 import { useAuthProviderContext } from '@app/contexts/auth-provider.context';
 import { zodResolver } from '@hookform/resolvers/zod';
-import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
-import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined';
-import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
-import LoadingButton from '@mui/lab/LoadingButton';
 import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
-import IconButton from '@mui/material/IconButton';
 import Link from '@mui/material/Link';
 import Stack from '@mui/material/Stack';
 import { useCallback, useState } from 'react';
 import { useForm } from 'react-hook-form';
+
+import LoginFormInputEmail from './login-form/login-form-input-email.component';
+import LoginFormInputPassword from './login-form/login-form-input-password.component';
+import LoginFormSubmitButton from './login-form/login-form-submit-button.component';
 
 const defaultValues: LoginInput = {
     email: '',
@@ -29,7 +27,6 @@ const defaultValues: LoginInput = {
 
 export default function LoginForm() {
     const [errorRequest, setErrorRequest] = useState<string>('');
-    const [showPassword, setShowPassword] = useState<boolean>(false);
     const { authenticated } = useAuthProviderContext();
 
     const form = useForm<LoginInput>({
@@ -52,48 +49,14 @@ export default function LoginForm() {
         }
     }, []);
 
-    const toggleShowPassword = useCallback(() => {
-        setShowPassword((prev) => !prev);
-    }, []);
-
     return (
         <Form id='frm-login' {...form} onSubmit={onSubmit} sx={{ width: '300px' }}>
             <Stack spacing={2}>
-                <Input
-                    type='email'
-                    name='email'
-                    label='Correo Electronico'
-                    autoComplete='username'
-                    autoFocus
-                    fullWidth
-                    control={form.control}
-                />
-                <Input
-                    type={showPassword ? 'text' : 'password'}
-                    name='password'
-                    autoComplete='current-password'
-                    label='Contraseña'
-                    control={form.control}
-                    sx={{ pr: 0 }}
-                    fullWidth
-                    endAdornment={
-                        <IconButton type='button' onClick={toggleShowPassword}>
-                            {showPassword ? <VisibilityOffOutlinedIcon /> : <VisibilityOutlinedIcon />}
-                        </IconButton>
-                    }
-                />
+                <LoginFormInputEmail control={form.control} />
+                <LoginFormInputPassword control={form.control} />
                 <Switch name='remember_me' label='Recordarme' control={form.control} />
-                <LoadingButton
-                    type='submit'
-                    fullWidth
-                    variant='contained'
-                    loading={form.formState.isSubmitting}
-                    loadingPosition='start'
-                    startIcon={<LoginOutlinedIcon />}
-                >
-                    Iniciar Sesión
-                </LoadingButton>
                 <Divider />
+                <LoginFormSubmitButton />
                 <Link href='#' variant='body2' sx={{ textAlign: 'center' }}>
                     Forgot password?
                 </Link>
