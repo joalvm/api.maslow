@@ -52,8 +52,8 @@ export default function LoginForm() {
     return (
         <Form id='frm-login' {...form} onSubmit={onSubmit} sx={{ width: '300px' }}>
             <Stack spacing={2}>
-                <LoginFormInputEmail control={form.control} />
-                <LoginFormInputPassword control={form.control} />
+                <LoginFormInputEmail />
+                <LoginFormInputPassword />
                 <Switch name='remember_me' label='Recordarme' control={form.control} />
                 <Divider />
                 <LoginFormSubmitButton />

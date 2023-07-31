@@ -4,13 +4,10 @@ import VisibilityOffOutlinedIcon from '@mui/icons-material/VisibilityOffOutlined
 import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import IconButton from '@mui/material/IconButton';
 import { useCallback, useState } from 'react';
-import { Control } from 'react-hook-form';
-interface LoginFormInputPasswordProps {
-    control: Control<LoginInput>;
-}
-
-export default function LoginFormInputPassword({ control }: LoginFormInputPasswordProps) {
+import { useFormContext } from 'react-hook-form';
+export default function LoginFormInputPassword() {
     const [showPassword, setShowPassword] = useState<boolean>(false);
+    const { control } = useFormContext<LoginInput>();
 
     const toggleShowPassword = useCallback(() => {
         setShowPassword((prev) => !prev);
