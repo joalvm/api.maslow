@@ -1,4 +1,4 @@
-import createTheme from '@app/assets/theme/theme';
+import createTheme from '@assets/theme/theme';
 import CssBaseline from '@mui/material/CssBaseline';
 import { Theme, ThemeProvider } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';

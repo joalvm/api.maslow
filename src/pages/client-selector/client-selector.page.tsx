@@ -1,6 +1,6 @@
-import Logo from '@app/assets/images/logos/logo.png';
-import Copyright from '@app/components/copyright.component';
-import { useAuthProviderContext } from '@app/contexts/auth-provider.context';
+import Logo from '@assets/images/logos/logo.png';
+import Copyright from '@components/copyright.component';
+import { useAuthProviderContext } from '@contexts/auth-provider.context';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import MuiContainer from '@mui/material/Container';

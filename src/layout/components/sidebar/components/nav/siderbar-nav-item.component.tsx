@@ -1,4 +1,4 @@
-import { NavItem, NavItemType } from '@app/router/navigation.types';
+import { NavItem, NavItemType } from '@router/navigation.types';
 import ExpandLessOutlined from '@mui/icons-material/ExpandLessOutlined';
 import ExpandMoreOutlined from '@mui/icons-material/ExpandMoreOutlined';
 import MUIListItemButton, { ListItemButtonProps as MUIListItemButtonProps } from '@mui/material/ListItemButton';

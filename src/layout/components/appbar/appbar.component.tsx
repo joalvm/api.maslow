@@ -1,4 +1,4 @@
-import Logo from '@app/assets/images/logos/logo.png';
+import Logo from '@assets/images/logos/logo.png';
 import NotificationsNoneOutlinedIcon from '@mui/icons-material/NotificationsNoneOutlined';
 import Appbar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';

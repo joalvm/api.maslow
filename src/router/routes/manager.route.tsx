@@ -1,4 +1,4 @@
-import ManagerPage from '@app/pages/manager/manager.page';
+import ManagerPage from '@pages/manager/manager.page';
 import { RouteObject } from 'react-router-dom';
 
 import { index, profile } from '../navigation/manager.navigate';

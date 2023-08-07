@@ -1,9 +1,9 @@
-import PanelSide from '@app/assets/images/login-panel.jpg';
-import Copyright from '@app/components/copyright.component';
-import titlePage from '@app/utils/title-page.util';
+import PanelSide from '@assets/images/login-panel.jpg';
+import Copyright from '@components/copyright.component';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import { styled } from '@mui/material/styles';
+import titlePage from '@utils/title-page.util';
 import { Helmet } from 'react-helmet-async';
 
 import LoginForm from './components/login-form.component';
@@ -30,7 +30,7 @@ export default function LoginPage() {
             <Helmet title={titlePage('Login')} />
             <Grid container spacing={0}>
                 <LeftSide item xs={12} sm={8} md={6} lg={5}>
-                    <Box>
+                    <Box sx={{ mt: { xs: '-20%', sm: '-10%' } }}>
                         <LoginHeading />
                         <LoginForm />
                     </Box>

@@ -1,6 +1,18 @@
 /* eslint-disable spaced-comment */
 /// <reference types="vite/client" />
 
+interface ImportMetaEnv {
+    readonly VITE_APP_NAME: string;
+    readonly VITE_API_URL: string;
+    readonly VITE_API_STORAGE_URL: string;
+    readonly VITE_API_STORAGE_BUCKET: string;
+    // more env variables...
+}
+
+interface ImportMeta {
+    readonly env: ImportMetaEnv;
+}
+
 import '@mui/material/styles';
 
 declare module '@mui/material/styles' {
@@ -59,16 +71,4 @@ declare module '@mui/material/styles' {
             };
         };
     }
-}
-
-interface ImportMetaEnv {
-    readonly VITE_APP_NAME: string;
-    readonly VITE_API_URL: string;
-    readonly VITE_API_STORAGE_URL: string;
-    readonly VITE_API_STORAGE_BUCKET: string;
-    // more env variables...
-}
-
-interface ImportMeta {
-    readonly env: ImportMetaEnv;
 }

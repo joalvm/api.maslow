@@ -11,16 +11,10 @@ export default function createTheme(mode: 'dark' | 'light'): Theme {
         {
             direction: 'ltr',
             palette,
-            components: {
-                MuiButton: {
-                    styleOverrides: {
-                        startIcon: {
-                            marginRight: '0.5rem',
-                            fontSize: '.5rem',
-                        },
-                    },
-                },
+            typography: {
+                fontSize: 12,
             },
+            components: {},
         },
         coreEsEs,
     );

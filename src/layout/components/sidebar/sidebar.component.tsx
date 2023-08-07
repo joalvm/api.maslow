@@ -1,4 +1,4 @@
-import { SIDEBAR_WIDTH, useAdminLayoutContext } from '@app/contexts/admin-layout.context';
+import { SIDEBAR_WIDTH, useAdminLayoutContext } from '@contexts/admin-layout.context';
 import MuiDrawer from '@mui/material/Drawer';
 import { styled } from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';

@@ -1,5 +1,5 @@
 import storage from '@api/utils/storage.util';
-import { useAuthProviderContext } from '@app/contexts/auth-provider.context';
+import { useAuthProviderContext } from '@contexts/auth-provider.context';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';

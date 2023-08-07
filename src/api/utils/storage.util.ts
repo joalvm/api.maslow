@@ -7,7 +7,7 @@ export default function storage(path: string | undefined | null) {
         return '';
     }
 
-    if (path?.match(/^http(s)?:\/\//)) {
+    if (path?.match(/^http(s)?:\/\/|;base64,/)) {
         return path;
     }
 

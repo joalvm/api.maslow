@@ -1,4 +1,4 @@
-import titlePage from '@app/utils/title-page.util';
+import titlePage from '@utils/title-page.util';
 import { Helmet } from 'react-helmet-async';
 
 export default function NotFoundErrorPage() {

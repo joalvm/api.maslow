@@ -1,4 +1,4 @@
-import ClientPage from '@app/pages/client/client.page';
+import ClientPage from '@pages/client/client.page';
 import { RouteObject } from 'react-router-dom';
 
 import { index, profile } from '../navigation/client.navigate';

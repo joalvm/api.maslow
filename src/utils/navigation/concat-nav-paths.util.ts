@@ -1,4 +1,4 @@
-import { NavItems } from '@app/router/navigation.types';
+import { NavItems } from '@router/navigation.types';
 
 export default function concatNavPaths(navs: NavItems, prefix: string) {
     const newNavs: NavItems = {};

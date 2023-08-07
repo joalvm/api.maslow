@@ -1,4 +1,4 @@
-import { useAuthProviderContext } from '@app/contexts/auth-provider.context';
+import { useAuthProviderContext } from '@contexts/auth-provider.context';
 import { useEffect } from 'react';
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
 

@@ -1,4 +1,4 @@
-import { useAuthProviderContext } from '@app/contexts/auth-provider.context';
+import { useAuthProviderContext } from '@contexts/auth-provider.context';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';

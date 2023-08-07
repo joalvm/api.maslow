@@ -1,12 +1,14 @@
-import Logo from '@app/assets/images/logos/logo.png';
+import Logo from '@assets/images/logos/logo.png';
 import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 
-const LogoImage = styled('img')({
+const LogoImage = styled('img')(({ theme }) => ({
+    position: 'absolute',
+    top: theme.spacing(4),
     height: 'auto',
-    marginBottom: '14px',
-});
+    display: 'block',
+}));
 
 export default function LoginHeading() {
     return (

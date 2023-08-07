@@ -1,9 +1,9 @@
-import AdminLayoutProvider from '@app/contexts/admin-layout.context';
-import AuthProvider from '@app/contexts/auth-provider.context';
-import ClientSelectorPage from '@app/pages/client-selector/client-selector.page';
-import RootBoundary from '@app/pages/errors/error-root-boundary';
-import LoginPage from '@app/pages/login/login.page';
-import RolesBoundary from '@app/pages/roles-boundary';
+import AdminLayoutProvider from '@contexts/admin-layout.context';
+import AuthProvider from '@contexts/auth-provider.context';
+import ClientSelectorPage from '@pages/client-selector/client-selector.page';
+import RootBoundary from '@pages/errors/error-root-boundary';
+import LoginPage from '@pages/login/login.page';
+import RolesBoundary from '@pages/roles-boundary';
 import { RouteObject } from 'react-router-dom';
 import { v4 } from 'uuid';
 

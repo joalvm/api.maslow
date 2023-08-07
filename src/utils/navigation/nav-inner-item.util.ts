@@ -1,4 +1,4 @@
-import { NavItem, NavItems, NavItemType } from '@app/router/navigation.types';
+import { NavItem, NavItems, NavItemType } from '@router/navigation.types';
 import { v4 } from 'uuid';
 
 export default function navInnerItem(

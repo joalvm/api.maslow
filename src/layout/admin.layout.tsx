@@ -1,6 +1,6 @@
-import { SIDEBAR_WIDTH, useAdminLayoutContext } from '@app/contexts/admin-layout.context';
+import Copyright from '@components/copyright.component';
+import { SIDEBAR_WIDTH, useAdminLayoutContext } from '@contexts/admin-layout.context';
 import Box from '@mui/material/Box';
-import Container from '@mui/material/Container';
 import { styled } from '@mui/material/styles';
 import { PropsWithChildren } from 'react';
 
@@ -12,16 +12,12 @@ const Main = styled(Box, {
 })<{ open: boolean }>(({ theme, open }) => ({
     flexGrow: 1,
     position: 'relative',
-    height: `calc(100vh - 64px)`,
+    height: `calc(100vh - ${theme.spacing(8)})`,
     display: 'flex',
     flexDirection: 'column',
     marginLeft: open ? SIDEBAR_WIDTH : 0,
     [theme.breakpoints.down('md')]: {
         marginLeft: 0,
-    },
-    '& .MuiContainer-root': {
-        paddingTop: theme.spacing(2),
-        paddingBottom: theme.spacing(2),
     },
 }));
 
@@ -31,12 +27,38 @@ export default function AdminLayout({ children }: PropsWithChildren) {
     return (
         <Box flexGrow={1} position='relative'>
             <AppBar />
-            <Main open={!isMobile && sidebarOpened} sx={{ pt: 8 }}>
+            <Main open={!isMobile && sidebarOpened} sx={{ pt: { xs: 7, sm: 8 } }}>
                 <Sidebar />
-                <Box flexGrow={1} display='flex' position='relative'>
-                    <Container maxWidth='xl' disableGutters={isMobile} component='main'>
-                        {children}
-                    </Container>
+                {/* Contenido Principal */}
+                <Box
+                    flexGrow={1}
+                    display='flex'
+                    position='relative'
+                    flexDirection='column'
+                    id='flex-container'
+                    component={'main'}
+                    sx={(theme) => ({
+                        minHeight: 'auto',
+                        [theme.breakpoints.up('md')]: {
+                            p: theme.spacing(2),
+                        },
+                    })}
+                >
+                    {/* Contenido de la página */}
+                    {children}
+
+                    {/* Copyright */}
+                    <Box
+                        sx={(theme) => ({
+                            position: 'relative',
+                            bottom: theme.spacing(1),
+                            mt: theme.spacing(4),
+                            left: '50%',
+                            translate: '-50%',
+                        })}
+                    >
+                        <Copyright />
+                    </Box>
                 </Box>
             </Main>
         </Box>

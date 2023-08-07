@@ -1,4 +1,4 @@
-import { NavItem, NavItemType } from '@app/router/navigation.types';
+import { NavItem, NavItemType } from '@router/navigation.types';
 import Collapse from '@mui/material/Collapse';
 import List from '@mui/material/List';
 import { useEffect, useState } from 'react';

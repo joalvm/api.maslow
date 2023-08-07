@@ -2,10 +2,10 @@
 // y el rol del usuario autenticado
 
 import UserRole from '@api/resources/users/domain/user-role.enum';
-import navigator from '@app/router/navigation';
-import { getNavigation as getClientNavigation } from '@app/router/navigation/client.navigate';
-import { getNavigation as getCoordinatorNavigator } from '@app/router/navigation/coordinator.navigate';
-import { getNavigation as getManagerNavigation } from '@app/router/navigation/manager.navigate';
+import navigator from '@router/navigation';
+import { getNavigation as getClientNavigation } from '@router/navigation/client.navigate';
+import { getNavigation as getCoordinatorNavigator } from '@router/navigation/coordinator.navigate';
+import { getNavigation as getManagerNavigation } from '@router/navigation/manager.navigate';
 
 export default function getUserNavigationItems(role: UserRole | undefined) {
     let navs = { ...navigator };

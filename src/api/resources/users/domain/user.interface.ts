@@ -1,7 +1,7 @@
 import { Person } from '@api/resources/persons/domain/person.interface';
 import { z } from 'zod';
 
-import { userValidator } from './user.validator';
+import { userChangePasswordValidator, userValidator } from './user.validator';
 import UserRole from './user-role.enum';
 
 /**
@@ -26,3 +26,5 @@ export type UserBasic = Omit<User, 'person' | 'created_at' | 'updated_at'>;
 export type UserBasicWithPerson = Omit<User, 'created_at' | 'updated_at'>;
 
 export type UserInput = z.infer<typeof userValidator>;
+
+export type UserChangePasswordInput = z.infer<typeof userChangePasswordValidator>;

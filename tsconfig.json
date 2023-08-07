@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "baseUrl": ".",
+        "baseUrl": "./src",
         "target": "ESNext",
         "useDefineForClassFields": true,
         "lib": ["ESNext", "DOM", "DOM.Iterable", "WebWorker"],
@@ -18,20 +18,20 @@
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": true,
+        "types": ["./src/vite-env.d.ts", "node"],
         "paths": {
-            "@app/*": ["src/*"],
-            "@api/*": ["api/*"]
+            "@api/*": ["api/*"],
+            "@assets/*": ["assets/*"],
+            "@components/*": ["components/*"],
+            "@contexts/*": ["contexts/*"],
+            "@hooks/*": ["hooks/*"],
+            "@layout/*": ["layout/*"],
+            "@pages/*": ["pages/*"],
+            "@router/*": ["router/*"],
+            "@utils/*": ["utils/*"]
         }
     },
-    "include": [
-        "src",
-        "api",
-        ".eslintrc.cjs",
-        "vite.config.ts",
-        "tailwind.config.js",
-        "postcss.config.js",
-        "vite-env.d.ts"
-    ],
+    "include": ["src", ".eslintrc.cjs", "vite.config.ts"],
     "exclude": ["node_modules", "dist", "build"],
     "references": [{ "path": "./tsconfig.node.json" }]
 }

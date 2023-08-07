@@ -1,4 +1,4 @@
-import '@app/assets/styles/global.scss';
+import '@assets/styles/global.scss';
 
 import { StyledEngineProvider } from '@mui/material/styles';
 import { StrictMode } from 'react';

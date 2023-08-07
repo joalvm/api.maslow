@@ -1,4 +1,4 @@
-import Cache from '@app/utils/cache.util';
+import Cache from '@utils/cache.util';
 import { createContext, PropsWithChildren, useContext, useMemo } from 'react';
 
 export interface AppContext {

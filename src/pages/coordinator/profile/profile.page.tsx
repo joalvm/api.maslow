@@ -1,4 +1,4 @@
-import { useAuthProviderContext } from '@app/contexts/auth-provider.context';
+import { useAuthProviderContext } from '@contexts/auth-provider.context';
 import { Link } from 'react-router-dom';
 
 export default function CoordinatorProfilePage() {

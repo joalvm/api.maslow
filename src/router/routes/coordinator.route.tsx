@@ -1,5 +1,5 @@
-import CoordinatorPage from '@app/pages/coordinator/coordinator.page';
-import CoordinatorProfilePage from '@app/pages/coordinator/profile/profile.page';
+import CoordinatorPage from '@pages/coordinator/coordinator.page';
+import ProfilePage from '@pages/profile/profile.page';
 import { RouteObject } from 'react-router-dom';
 
 import { client, config, incidence, index, profile, team } from '../navigation/coordinator.navigate';
@@ -19,7 +19,7 @@ export default {
         {
             id: profile.id,
             path: profile.path,
-            element: <CoordinatorProfilePage />,
+            element: <ProfilePage />,
         },
         {
             id: team.id,

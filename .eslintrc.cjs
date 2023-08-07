@@ -27,7 +27,7 @@ module.exports = {
         '@typescript-eslint',
         'prettier',
         'simple-import-sort',
-        // 'unused-imports',
+        'unused-imports',
         'react-refresh',
     ],
     settings: {
@@ -41,12 +41,12 @@ module.exports = {
         },
     },
     rules: {
-        // '@typescript-eslint/no-unused-vars': 'off',
-        // 'unused-imports/no-unused-imports': 'warn',
-        // 'unused-imports/no-unused-vars': [
-        //     'warn',
-        //     { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' },
-        // ],
+        '@typescript-eslint/no-unused-vars': 'off',
+        'unused-imports/no-unused-imports': 'warn',
+        'unused-imports/no-unused-vars': [
+            'warn',
+            { vars: 'all', varsIgnorePattern: '^_', args: 'after-used', argsIgnorePattern: '^_' },
+        ],
         'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
         'react/react-in-jsx-scope': 'off',
         'spaced-comment': 'error',
@@ -63,7 +63,12 @@ module.exports = {
         'react/no-unescaped-entities ': 'off',
         'react/no-array-index-key': 'off',
         'class-methods-use-this': 'off',
-        '@typescript-eslint/no-misused-promises': 'off',
         'prettier/prettier': 'off',
+        '@typescript-eslint/no-misused-promises': [
+            'error',
+            {
+                checksVoidReturn: false,
+            },
+        ],
     },
 };

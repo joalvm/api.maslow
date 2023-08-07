@@ -1,4 +1,4 @@
-import AdminLayout from '@app/layout/admin.layout';
+import AdminLayout from '@layout/admin.layout';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { createContext, Dispatch, SetStateAction, useContext, useMemo, useState } from 'react';

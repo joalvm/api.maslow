@@ -1,4 +1,4 @@
-import { useAuthProviderContext } from '@app/contexts/auth-provider.context';
+import { useAuthProviderContext } from '@contexts/auth-provider.context';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';

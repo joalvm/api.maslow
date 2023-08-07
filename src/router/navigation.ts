@@ -1,4 +1,4 @@
-import navInnerItem from '@app/utils/navigation/nav-inner-item.util';
+import navInnerItem from '@utils/navigation/nav-inner-item.util';
 
 import { NavItems } from './navigation.types';
 

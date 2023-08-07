@@ -2,7 +2,7 @@ import Connection from '@api/providers/maslow/connection';
 import { ClientBasic } from '@api/resources/clients/client.interface';
 import { Profile } from '@api/resources/session/domain/profile/profile.interface';
 import UserRole from '@api/resources/users/domain/user-role.enum';
-import getUserNavigationItems from '@app/utils/navigation/get-user-navigation-items';
+import getUserNavigationItems from '@utils/navigation/get-user-navigation-items';
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 

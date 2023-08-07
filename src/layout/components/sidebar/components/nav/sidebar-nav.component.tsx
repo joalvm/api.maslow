@@ -1,5 +1,5 @@
-import { useAuthProviderContext } from '@app/contexts/auth-provider.context';
-import { NavItemType } from '@app/router/navigation.types';
+import { useAuthProviderContext } from '@contexts/auth-provider.context';
+import { NavItemType } from '@router/navigation.types';
 import { Box } from '@mui/material';
 import List from '@mui/material/List';
 
