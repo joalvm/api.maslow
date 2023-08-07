@@ -7,12 +7,12 @@ import { useAuthProviderContext } from '@contexts/auth-provider.context';
 import { zodResolver } from '@hookform/resolvers/zod';
 import SaveOutlinedIcon from '@mui/icons-material/SaveOutlined';
 import LoadingButton from '@mui/lab/LoadingButton';
-import { Typography } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
 import { useForm } from 'react-hook-form';
 
 import ProfileTabPanelBasicInfoAvatar from './profile-tab-panel-basic-info/profile-tab-panel-basic-info-avatar.component';

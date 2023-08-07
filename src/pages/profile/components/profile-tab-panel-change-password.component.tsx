@@ -4,7 +4,9 @@ import Form from '@components/forms/form.component';
 import Input from '@components/forms/input.component';
 import LoadingFab from '@components/loading-fab.component';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { Card, CardContent, Stack } from '@mui/material';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Stack from '@mui/material/Stack';
 import { useForm } from 'react-hook-form';
 
 export default function ProfileTabPanelChangePassword() {

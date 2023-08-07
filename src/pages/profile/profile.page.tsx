@@ -1,6 +1,6 @@
 import TabPanel from '@components/tab-panel.component';
 import Container from '@layout/components/container/container.component';
-import { Card } from '@mui/material';
+import Card from '@mui/material/Card';
 import Grid from '@mui/material/Grid';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
