@@ -1,4 +1,4 @@
-import { SIDEBAR_WIDTH, useAdminLayoutContext } from '@contexts/admin-layout.context';
+import { SIDEBAR_WIDTH, useLayoutContext } from '@contexts/layout.context';
 import MuiDrawer from '@mui/material/Drawer';
 import { styled } from '@mui/material/styles';
 import Toolbar from '@mui/material/Toolbar';
@@ -21,7 +21,7 @@ const Drawer = styled(MuiDrawer)(({ theme }) => ({
 }));
 
 export default function Sidebar() {
-    const { isMobile, sidebarOpened, setSidebarOpened } = useAdminLayoutContext();
+    const { isMobile, sidebarOpened, setSidebarOpened } = useLayoutContext();
 
     return (
         <Drawer

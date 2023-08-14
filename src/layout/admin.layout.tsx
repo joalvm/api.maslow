@@ -1,5 +1,5 @@
 import Copyright from '@components/copyright.component';
-import { SIDEBAR_WIDTH, useAdminLayoutContext } from '@contexts/admin-layout.context';
+import { SIDEBAR_WIDTH, useLayoutContext } from '@contexts/layout.context';
 import Box from '@mui/material/Box';
 import { styled } from '@mui/material/styles';
 import { PropsWithChildren } from 'react';
@@ -22,10 +22,10 @@ const Main = styled(Box, {
 }));
 
 export default function AdminLayout({ children }: PropsWithChildren) {
-    const { sidebarOpened, isMobile } = useAdminLayoutContext();
+    const { sidebarOpened, isMobile } = useLayoutContext();
 
     return (
-        <Box flexGrow={1} position='relative'>
+        <Box id='container-layout' flexGrow={1} position='relative' sx={{ overflowX: 'hidden' }}>
             <AppBar />
             <Main open={!isMobile && sidebarOpened} sx={{ pt: { xs: 7, sm: 8 } }}>
                 <Sidebar />
@@ -37,12 +37,6 @@ export default function AdminLayout({ children }: PropsWithChildren) {
                     flexDirection='column'
                     id='flex-container'
                     component={'main'}
-                    sx={(theme) => ({
-                        minHeight: 'auto',
-                        [theme.breakpoints.up('md')]: {
-                            p: theme.spacing(2),
-                        },
-                    })}
                 >
                     {/* Contenido de la página */}
                     {children}

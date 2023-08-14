@@ -1,5 +1,5 @@
-import AdminLayoutProvider from '@contexts/admin-layout.context';
-import AuthProvider from '@contexts/auth-provider.context';
+import LayoutProvider from '@contexts/layout.context';
+import AuthProvider from '@contexts/auth.context';
 import ClientSelectorPage from '@pages/client-selector/client-selector.page';
 import RootBoundary from '@pages/errors/error-root-boundary';
 import LoginPage from '@pages/login/login.page';
@@ -31,7 +31,7 @@ export default [
                         element: <ClientSelectorPage />,
                     },
                     {
-                        element: <AdminLayoutProvider />,
+                        element: <LayoutProvider />,
                         children: [coordinatorRouter],
                     },
                 ],

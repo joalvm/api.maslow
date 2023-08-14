@@ -6,7 +6,7 @@ import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
 import { useState } from 'react';
 
-import ProfileTabPanelBasicInfo from './components/profile-tab-panel-basic-info.component';
+import ProfileTabPanelAcount from './components/profile-tab-panel-acount.component';
 import ProfileTabPanelChangePassword from './components/profile-tab-panel-change-password.component';
 
 function a11yProps(index: number) {
@@ -28,11 +28,11 @@ export default function ProfilePage() {
             <Grid container spacing={2}>
                 <Grid item xs={12}>
                     <Tabs value={value} onChange={handleChange}>
-                        <Tab label='Información Personal' {...a11yProps(0)} />
+                        <Tab label='cuenta' {...a11yProps(0)} />
                         <Tab label='Cambiar contraseña' {...a11yProps(1)} />
                     </Tabs>
                     <TabPanel value={value} index={0}>
-                        <ProfileTabPanelBasicInfo />
+                        <ProfileTabPanelAcount />
                     </TabPanel>
                     <TabPanel value={value} index={1}>
                         <ProfileTabPanelChangePassword />

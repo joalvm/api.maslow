@@ -4,18 +4,20 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import { createContext, Dispatch, SetStateAction, useContext, useMemo, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
+import NotifierProvider from './notifier.context';
+
 export const SIDEBAR_WIDTH = 240;
 
-export interface AdminLayoutContext {
+export interface LayoutContext {
     isMobile: boolean;
     sidebarOpened: boolean;
     toggleSidebarOpened: () => void;
     setSidebarOpened: Dispatch<SetStateAction<boolean>>;
 }
 
-const context = createContext<AdminLayoutContext>({} as AdminLayoutContext);
+const context = createContext<LayoutContext>({} as LayoutContext);
 
-export default function AdminLayoutProvider() {
+export default function LayoutProvider() {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
     const [sidebarOpened, setSidebarOpened] = useState<boolean>(!isMobile);
@@ -31,13 +33,15 @@ export default function AdminLayoutProvider() {
 
     return (
         <context.Provider value={value}>
-            <AdminLayout>
-                <Outlet />
-            </AdminLayout>
+            <NotifierProvider>
+                <AdminLayout>
+                    <Outlet />
+                </AdminLayout>
+            </NotifierProvider>
         </context.Provider>
     );
 }
 
-export function useAdminLayoutContext() {
+export function useLayoutContext() {
     return useContext(context);
 }

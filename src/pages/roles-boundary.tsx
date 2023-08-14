@@ -1,4 +1,4 @@
-import { useAuthProviderContext } from '@contexts/auth-provider.context';
+import { useAuthContext } from '@contexts/auth.context';
 import { useEffect } from 'react';
 import { Navigate, Outlet, useLocation } from 'react-router-dom';
 
@@ -10,7 +10,7 @@ import { Navigate, Outlet, useLocation } from 'react-router-dom';
  * @returns
  */
 export default function RolesBoundary() {
-    const { isAuthenticated, currentClient, logout, expiredAt, userNavigationItems } = useAuthProviderContext();
+    const { isAuthenticated, currentClient, logout, expiredAt, userNavigationItems } = useAuthContext();
     const location = useLocation();
     let to = '';
 

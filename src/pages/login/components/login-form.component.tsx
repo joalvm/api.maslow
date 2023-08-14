@@ -4,7 +4,7 @@ import profile from '@api/resources/session/application/profile.service';
 import { LoginInput } from '@api/resources/session/domain/login/login.interface';
 import { loginValidator } from '@api/resources/session/domain/login/login.validator';
 import Form from '@components/forms/form.component';
-import { useAuthProviderContext } from '@contexts/auth-provider.context';
+import { useAuthContext } from '@contexts/auth.context';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
@@ -26,7 +26,7 @@ const defaultValues: LoginInput = {
 
 export default function LoginForm() {
     const [errorRequest, setErrorRequest] = useState<string>('');
-    const { authenticated } = useAuthProviderContext();
+    const { authenticated } = useAuthContext();
 
     const form = useForm<LoginInput>({
         resolver: zodResolver(loginValidator),

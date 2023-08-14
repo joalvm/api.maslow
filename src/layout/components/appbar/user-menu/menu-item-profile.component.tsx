@@ -1,4 +1,4 @@
-import { useAuthProviderContext } from '@contexts/auth-provider.context';
+import { useAuthContext } from '@contexts/auth.context';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom';
 export default function MenuItemProfile() {
     const {
         userNavigationItems: { profile },
-    } = useAuthProviderContext();
+    } = useAuthContext();
 
     return (
         <MenuItem {...{ component: Link }} dense LinkComponent={Link} to={profile.path}>

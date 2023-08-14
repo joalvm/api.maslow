@@ -11,9 +11,6 @@ export default function createTheme(mode: 'dark' | 'light'): Theme {
         {
             direction: 'ltr',
             palette,
-            typography: {
-                fontSize: 12,
-            },
             components: {},
         },
         coreEsEs,

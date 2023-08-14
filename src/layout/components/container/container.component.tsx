@@ -2,6 +2,12 @@ import MuiContainer, { ContainerProps as MuiContainerProps } from '@mui/material
 
 type ContainerProps = MuiContainerProps;
 
-export default function Container(props: ContainerProps) {
-    return <MuiContainer {...props} disableGutters />;
+export default function Container({ children, ...other }: ContainerProps) {
+    return (
+        <>
+            <MuiContainer {...other} disableGutters>
+                {children}
+            </MuiContainer>
+        </>
+    );
 }

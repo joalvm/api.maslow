@@ -1,12 +1,12 @@
 import storage from '@api/utils/storage.util';
-import { useAuthProviderContext } from '@contexts/auth-provider.context';
+import { useAuthContext } from '@contexts/auth.context';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import MenuItem from '@mui/material/MenuItem';
 import Typography from '@mui/material/Typography';
 
 export default function MenuItemHeading() {
-    const { profile } = useAuthProviderContext();
+    const { profile } = useAuthContext();
 
     return (
         <MenuItem disableRipple disableGutters disableTouchRipple sx={{ ':hover': { backgroundColor: 'transparent' } }}>

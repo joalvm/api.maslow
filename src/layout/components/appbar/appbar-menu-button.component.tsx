@@ -1,10 +1,10 @@
-import { useAdminLayoutContext } from '@contexts/admin-layout.context';
+import { useLayoutContext } from '@contexts/layout.context';
 import MenuOpenOutlinedIcon from '@mui/icons-material/MenuOpenOutlined';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import IconButton from '@mui/material/IconButton';
 
 export default function AppBarMenuButton() {
-    const { sidebarOpened, setSidebarOpened } = useAdminLayoutContext();
+    const { sidebarOpened, setSidebarOpened } = useLayoutContext();
 
     return (
         <IconButton

@@ -1,5 +1,5 @@
 import storage from '@api/utils/storage.util';
-import { useAuthProviderContext } from '@contexts/auth-provider.context';
+import { useAuthContext } from '@contexts/auth.context';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
@@ -8,7 +8,7 @@ import Typography from '@mui/material/Typography';
 import { Link as RLink } from 'react-router-dom';
 
 export default function SidebarUserInfo() {
-    const { profile, userNavigationItems } = useAuthProviderContext();
+    const { profile, userNavigationItems } = useAuthContext();
 
     if (!profile) {
         return null;
@@ -20,7 +20,7 @@ export default function SidebarUserInfo() {
                 <Avatar
                     alt={`avatar ${profile?.names} ${profile?.last_names}`}
                     src={storage(profile?.user?.avatar_url)}
-                    sx={{ width: 36, height: 36 }}
+                    sx={(theme) => ({ width: theme.spacing(7), height: theme.spacing(7) })}
                 />
                 <Link
                     component={RLink}

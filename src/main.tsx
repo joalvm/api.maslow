@@ -6,7 +6,7 @@ import { createRoot } from 'react-dom/client';
 import { HelmetProvider } from 'react-helmet-async';
 
 import App from './app';
-import AppProvider from './contexts/app-provider.context';
+import AppProvider from './contexts/app.context';
 import ThemeContextProvider from './contexts/theme.context';
 
 createRoot(document.getElementById('root') as HTMLElement).render(

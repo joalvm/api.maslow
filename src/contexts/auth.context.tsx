@@ -6,7 +6,7 @@ import getUserNavigationItems from '@utils/navigation/get-user-navigation-items'
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 
-import { useAppContext } from './app-provider.context';
+import { useAppContext } from './app.context';
 
 export const TOKEN_KEY = 'token';
 export const EXPIRED_AT_TOKEN = 'expired_at';
@@ -22,6 +22,7 @@ export interface AuthContext {
     expiredAt: Date | null;
     userNavigationItems: ReturnType<typeof getUserNavigationItems>;
     selectCurrentClient: (clientId: number) => void;
+    updateProfile: (newProfile: Profile) => void;
     authenticated: (token: string, expiredAt: Date, sessionProfile: Profile) => void;
     logout: () => void;
 }
@@ -111,6 +112,12 @@ export default function AuthProvider() {
         setIsAuthenticated(true);
     };
 
+    const updateProfile = (newProfile: Profile) => {
+        cache.set(PROFILE_KEY, newProfile);
+
+        setProfile(newProfile);
+    };
+
     const userNavigationItems = useMemo(() => getUserNavigationItems(role), [role]);
 
     const value = useMemo(
@@ -125,8 +132,19 @@ export default function AuthProvider() {
             currentClient,
             userNavigationItems,
             expiredAt,
+            updateProfile,
         }),
-        [isAuthenticated, authenticated, profile, role, clients, setClients, selectCurrentClient, currentClient],
+        [
+            isAuthenticated,
+            authenticated,
+            profile,
+            role,
+            clients,
+            setClients,
+            selectCurrentClient,
+            updateProfile,
+            currentClient,
+        ],
     );
 
     return (
@@ -136,6 +154,6 @@ export default function AuthProvider() {
     );
 }
 
-export function useAuthProviderContext() {
+export function useAuthContext() {
     return useContext(context);
 }

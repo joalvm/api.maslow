@@ -1,6 +1,6 @@
 import Logo from '@assets/images/logos/logo.png';
 import Copyright from '@components/copyright.component';
-import { useAuthProviderContext } from '@contexts/auth-provider.context';
+import { useAuthContext } from '@contexts/auth.context';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import MuiContainer from '@mui/material/Container';
@@ -30,8 +30,8 @@ const Main = styled(Box)({
 });
 
 export default function ClientSelectorPage() {
-    const { logout } = useAuthProviderContext();
-    const { clients, currentClient, selectCurrentClient } = useAuthProviderContext();
+    const { logout } = useAuthContext();
+    const { clients, currentClient, selectCurrentClient } = useAuthContext();
     const [selectedValue, setSelectedValue] = useState<string>(currentClient?.id.toString() || '');
 
     const handleRadioChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
@@ -53,7 +53,7 @@ export default function ClientSelectorPage() {
                 <Box sx={{ mb: 6 }}>
                     <img src={Logo} alt='Logo Maslow Perú' />
                 </Box>
-                <Box sx={{ maxWidth: '100%', maxHeight: 400, overflow: 'auto' }}>
+                <Box sx={{ maxWidth: '100%', maxHeight: 400 }}>
                     <List
                         sx={{
                             maxWidth: '100%',

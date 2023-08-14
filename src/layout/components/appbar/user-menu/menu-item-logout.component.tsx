@@ -1,11 +1,11 @@
-import { useAuthProviderContext } from '@contexts/auth-provider.context';
+import { useAuthContext } from '@contexts/auth.context';
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import MenuItem from '@mui/material/MenuItem';
 
 export default function MenuItemLogout() {
-    const { logout } = useAuthProviderContext();
+    const { logout } = useAuthContext();
 
     const handleLogout = () => {
         logout();
