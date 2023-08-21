@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "baseUrl": "./src",
+        "baseUrl": "./",
         "target": "ESNext",
         "useDefineForClassFields": true,
         "lib": ["ESNext", "DOM", "DOM.Iterable", "WebWorker"],
@@ -18,21 +18,23 @@
         "noUnusedLocals": true,
         "noUnusedParameters": true,
         "noFallthroughCasesInSwitch": true,
-        "types": ["./src/vite-env.d.ts", "node"],
+        "types": ["./app/vite-env.d.ts", "node"],
         "paths": {
             "@api/*": ["api/*"],
-            "@assets/*": ["assets/*"],
-            "@components/*": ["components/*"],
-            "@contexts/*": ["contexts/*"],
-            "@hooks/*": ["hooks/*"],
-            "@layout/*": ["layout/*"],
-            "@pages/*": ["pages/*"],
-            "@router/*": ["router/*"],
-            "@utils/*": ["utils/*"]
+            "@assets/*": ["app/assets/*"],
+            "@components/*": ["app/components/*"],
+            "@contexts/*": ["app/contexts/*"],
+            "@hooks/*": ["app/hooks/*"],
+            "@layout/*": ["app/layout/*"],
+            "@pages/*": ["app/pages/*"],
+            "@router/*": ["app/router/*"],
+            "@utils/*": ["app/utils/*"],
+            "@services/*": ["app/services/*"]
         }
     },
     "include": [
-        "src",
+        "api",
+        "app",
         ".eslintrc.cjs",
         "vite.config.ts",
         "jest.config.ts",
