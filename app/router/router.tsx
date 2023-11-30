@@ -1,5 +1,5 @@
-import LayoutProvider from '@contexts/layout.context';
 import AuthProvider from '@contexts/auth.context';
+import LayoutProvider from '@contexts/layout.context';
 import ClientSelectorPage from '@pages/client-selector/client-selector.page';
 import RootBoundary from '@pages/errors/error-root-boundary';
 import LoginPage from '@pages/login/login.page';
