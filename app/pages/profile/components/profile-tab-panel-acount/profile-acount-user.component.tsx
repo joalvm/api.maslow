@@ -13,10 +13,9 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
 import Stack from '@mui/material/Stack';
+import useUpdateUserEmail from '@queries/profile/update-user-email.hook';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-
-import useUpdateUserEmail from './update-user-email.hook';
 
 const validator = z.object({
     email: z.string().email({ message: 'El correo no es válido' }),

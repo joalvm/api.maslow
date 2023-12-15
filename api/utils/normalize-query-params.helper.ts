@@ -1,4 +1,4 @@
-import { Request } from '../providers/maslow/interface';
+import Request from '@api/providers/maslow/domain/request.type';
 
 /**
  * Permite limpiar los parametros que serán pasados por url, manteniendo solo los que no están vacios o cumplan la condición.
@@ -6,9 +6,9 @@ import { Request } from '../providers/maslow/interface';
  * @param params Parametros url
  * @returns {object}
  */
-export default function normalizeQueryParams<T>(params: Partial<Request<T>>) {
+export default function normalizeQueryParams<T>(params: Request<T>) {
     const { schema, contains, paginate, page, per_page: perPage, sort, ...others } = params;
-    const queryParams: Partial<Request<T>> = {};
+    const queryParams: Request<T> = {};
 
     if (schema && schema.length > 0) {
         queryParams.schema = schema;

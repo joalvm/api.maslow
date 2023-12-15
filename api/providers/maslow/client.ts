@@ -1,8 +1,10 @@
 import normalizeQueryParams from '../../utils/normalize-query-params.helper';
 import Connection from './connection';
-import { Collection, HttpRequestConfig, Item, Paginate, Request } from './interface';
+import Request from './domain/request.type';
+import HttpRequestConfig from './domain/request-config.type';
+import { Collection, Item, Paginate } from './domain/response-data.type';
 
-export type Schema<T> = Pick<Request<T>, 'schema'>;
+export type Schema<TFields> = Pick<Request<TFields>, 'schema'>;
 
 export function get<TResponse, TParams extends Request<TResponse> = Request<TResponse>>(
     path: string,
@@ -10,7 +12,7 @@ export function get<TResponse, TParams extends Request<TResponse> = Request<TRes
 ) {
     return Connection.send<Collection<TResponse>, TParams>(path, 'GET', {
         ...config,
-        params: normalizeQueryParams<TResponse>(config.params || {}) as TParams,
+        params: normalizeQueryParams(config.params || {}) as TParams,
     });
 }
 
@@ -47,7 +49,10 @@ export function getOne<TResponse, TParams extends Schema<TResponse> = Schema<TRe
     const fullPath = id ? `${path}/${id}` : path;
     const queryParams = config.params || {};
 
-    return Connection.send<Item<TResponse>>(fullPath, 'GET', { ...config, params: normalizeQueryParams(queryParams) });
+    return Connection.send<Item<TResponse>>(fullPath, 'GET', {
+        ...config,
+        params: normalizeQueryParams<TParams>(queryParams),
+    });
 }
 
 export function post<TData, TResponse>(path: string, data: TData, config: HttpRequestConfig<unknown, TData> = {}) {

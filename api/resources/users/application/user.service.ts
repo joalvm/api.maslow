@@ -2,14 +2,16 @@ import { put } from '@api/providers/maslow/client';
 
 import { User, UserChangePasswordInput, UserInput } from '../domain/user.interface';
 
-export default class UserService {
-    static path = 'users';
+class UserService {
+    path = 'users';
 
-    static update(userId: number, input: Partial<UserInput>) {
-        return put<Partial<UserInput>, User>(UserService.path, userId, input);
+    update(userId: number, input: Partial<UserInput>) {
+        return put<Partial<UserInput>, User>(this.path, userId, input);
     }
 
-    static updatePassword(userId: number, input: UserChangePasswordInput) {
-        return put<UserChangePasswordInput, User>(UserService.path, userId, input);
+    changePassword(userId: number, input: UserChangePasswordInput) {
+        return put<UserChangePasswordInput, User>(this.path, userId, input);
     }
 }
+
+export default UserService;

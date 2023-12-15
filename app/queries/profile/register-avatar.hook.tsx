@@ -1,12 +1,13 @@
-import { uploadAvatarImage } from '@api/resources/files/application/upload.service';
+import FileService from '@api/resources/files/application/upload.service';
 import UserService from '@api/resources/users/application/user.service';
 import compressImage from '@utils/compress-image.util';
 import { useMutation } from 'react-query';
 
 async function registerImage(file: File) {
     const image = await compressImage(file);
+    const service = new FileService();
 
-    const result = await uploadAvatarImage(image);
+    const result = await service.uploadAvatar(image);
 
     if (result.error) {
         throw new Error(result.message);
@@ -19,9 +20,9 @@ export default function useRegisterAvatar(userId: number) {
     return useMutation({
         mutationKey: ['registerAvatar', userId],
         mutationFn: async (file: File) => {
-            const result = await UserService.update(userId, {
-                avatar_url: await registerImage(file),
-            });
+            const service = new UserService();
+            const fileUrl = await registerImage(file);
+            const result = await service.update(userId, { avatar_url: fileUrl });
 
             if (result.error) {
                 throw new Error(result.message);

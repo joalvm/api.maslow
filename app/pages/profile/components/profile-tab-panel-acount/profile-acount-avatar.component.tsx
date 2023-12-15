@@ -11,18 +11,15 @@ import Avatar from '@mui/material/Avatar';
 import Badge from '@mui/material/Badge';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
+import useRegisterAvatar from '@queries/profile/register-avatar.hook';
 import getBase64FromFile from '@utils/get-base64-image.util';
 import { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 
-import useRegisterAvatar from './register-avatar.hook';
-
-const resolver = zodResolver(
-    z.object({
-        avatar_url: z.string().optional(),
-    }),
-);
+const validator = z.object({
+    avatar_url: z.string().optional(),
+});
 
 export default function ProfileAcountAvatar() {
     const notifier = useNotifierContext();
@@ -30,7 +27,7 @@ export default function ProfileAcountAvatar() {
     const [currentFile, setCurrentFile] = useState<File | null>(null);
     const mutator = useRegisterAvatar(profile?.user.id as number);
     const UserForm = useForm<UserInput>({
-        resolver,
+        resolver: zodResolver(validator),
         defaultValues: {
             avatar_url: profile?.user.avatar_url || '',
         },
@@ -64,7 +61,9 @@ export default function ProfileAcountAvatar() {
         try {
             const file = e.target.files?.[0];
 
-            if (!file) return;
+            if (!file) {
+                return;
+            };
 
             setCurrentFile(file);
 
@@ -74,7 +73,9 @@ export default function ProfileAcountAvatar() {
         }
     };
 
-    if (!profile) return <></>;
+    if (!profile) {
+        return <></>
+    };
 
     return (
         <Form id='form-user' {...UserForm} onSubmit={handleOnSubmit}>

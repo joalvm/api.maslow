@@ -5,7 +5,8 @@ export default function useDocumentTypes() {
     return useQuery({
         queryKey: ['getDocumentTypes'],
         queryFn: async () => {
-            const result = await DocumentTypesService.all();
+            const service = new DocumentTypesService();
+            const result = await service.all();
 
             if (result.error) {
                 throw new Error(result.message);

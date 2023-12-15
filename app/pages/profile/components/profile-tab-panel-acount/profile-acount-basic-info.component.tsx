@@ -15,10 +15,9 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardHeader from '@mui/material/CardHeader';
 import Stack from '@mui/material/Stack';
+import useDocumentTypes from '@queries/document-types/get-document-types.hook';
+import useUpdatePersonInfo from '@queries/profile/update-person-info.hook';
 import { useForm } from 'react-hook-form';
-
-import useDocumentTypes from './get-document-types.hook';
-import useUpdatePersonInfo from './update-person-info.hook';
 
 export default function ProfileAccountBasicInfo() {
     const { profile, updateProfile } = useAuthContext();

@@ -1,8 +1,8 @@
 import Grid from '@mui/material/Grid';
 
-import ProfileAcountAvatar from './profile-acount-avatar/profile-acount-avatar.component';
-import ProfileAccountBasicInfo from './profile-acount-basic-info/profile-acount-basic-info.component';
-import ProfileAccountUser from './profile-acount-user/profile-acount-user.component';
+import ProfileAcountAvatar from './profile-acount-avatar.component';
+import ProfileAccountBasicInfo from './profile-acount-basic-info.component';
+import ProfileAccountUser from './profile-acount-user.component';
 
 export default function ProfileTabPanelAcount() {
     return (

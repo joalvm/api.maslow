@@ -6,7 +6,8 @@ export default function useUpdatePassword(userId: number) {
     return useMutation({
         mutationKey: ['update-password', userId],
         mutationFn: async (values: UserChangePasswordInput) => {
-            const result = await UserService.updatePassword(userId, values);
+            const service = new UserService();
+            const result = await service.changePassword(userId, values);
 
             if (result.error) {
                 throw new Error(result.message);

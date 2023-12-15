@@ -18,6 +18,4 @@ export type Person = {
 
 export type PersonBasic = Omit<Person, 'document_type' | 'created_at' | 'updated_at'>;
 
-export type PersonBasicWithDocumentType = Omit<Person, 'created_at' | 'updated_at'>;
-
 export type PersonInput = z.infer<typeof personValidator>;

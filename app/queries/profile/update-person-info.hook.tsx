@@ -6,7 +6,9 @@ export default function useUpdatePersonInfo(personId: number) {
     return useMutation({
         mutationKey: ['updatePerson', personId],
         mutationFn: async (values: PersonInput) => {
-            const result = await PersonsService.update(personId, values);
+            const service = new PersonsService();
+    
+            const result = await service.update(personId, values);
 
             if (result.error) {
                 throw new Error(result.message);

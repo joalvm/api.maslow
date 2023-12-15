@@ -1,6 +1,4 @@
-import { ApiError } from '@api/providers/maslow/interface';
-import login from '@api/resources/session/application/login.service';
-import profile from '@api/resources/session/application/profile.service';
+import SessionService from '@api/resources/session/application/session.service';
 import { LoginInput } from '@api/resources/session/domain/login/login.interface';
 import { loginValidator } from '@api/resources/session/domain/login/login.validator';
 import Form from '@components/forms/form.component';
@@ -36,15 +34,26 @@ export default function LoginForm() {
 
     const onSubmit = useCallback(async (values: LoginInput) => {
         try {
-            const response = await login(values);
+            const service = new SessionService();
+    
+            const response = await service.login(values);
+
+            if (response.error) {
+                throw new Error(response.message);
+            }
+
             const { token, expire_at: expiredAt } = response.data;
-            const sessionProfile = await profile(token);
+            const sessionProfile = await service.profile(token);
+
+            if (sessionProfile.error) {
+                throw new Error(sessionProfile.message);
+            }
 
             setErrorRequest(sessionProfile.message);
 
             authenticated(token, new Date(expiredAt), sessionProfile.data);
         } catch (error) {
-            setErrorRequest((error as ApiError).message);
+            setErrorRequest((error as Error).message);
         }
     }, []);
 

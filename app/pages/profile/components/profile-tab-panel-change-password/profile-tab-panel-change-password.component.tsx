@@ -10,10 +10,10 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import Stack from '@mui/material/Stack';
+import useUpdatePassword from '@queries/profile/update-password.hook';
 import { useForm } from 'react-hook-form';
 
 import InputPassword from './profile-input-password.component';
-import useUpdatePassword from './update-password.hook';
 
 export default function ProfileTabPanelChangePassword() {
     const { profile } = useAuthContext();

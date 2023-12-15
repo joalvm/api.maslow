@@ -1,16 +1,18 @@
 import { get, getOne } from '@api/providers/maslow/client';
-import { Request } from '@api/providers/maslow/interface';
+import Request from '@api/providers/maslow/domain/request.type';
 
 import { DocumentType } from '../domain/document-type.interface';
 
-export default class DocumentTypesService {
-    static path = 'document_types';
+class DocumentTypesService {
+    path = 'document_types';
 
-    static all(params: Request<DocumentType> = {}) {
-        return get<DocumentType>(DocumentTypesService.path, { params });
+    all(params: Request<DocumentType> = {}) {
+        return get<DocumentType>(this.path, { params });
     }
 
-    static find(id: number, params: Request<DocumentType> = {}) {
-        return getOne<DocumentType>(DocumentTypesService.path, id, { params });
+    find(id: number, params: Request<DocumentType> = {}) {
+        return getOne<DocumentType>(this.path, id, { params });
     }
 }
+
+export default DocumentTypesService;

@@ -1,5 +1,4 @@
 import axios, {
-    Axios,
     AxiosError,
     AxiosInstance,
     AxiosResponse,
@@ -8,9 +7,10 @@ import axios, {
     Method,
 } from 'axios';
 
-import { ApiError, HttpRequestConfig, ResponseError } from './interface';
+import HttpRequestConfig from './domain/request-config.type';
+import { Response } from './domain/response.type';
 
-export default class Connection {
+class Connection {
     public static http: AxiosInstance;
 
     public static bearerToken: string | null = null;
@@ -27,15 +27,23 @@ export default class Connection {
             .then((response) => response.data);
     }
 
-    static init<T, D>(defaultConfig: CreateAxiosDefaults<D> = {}) {
-        if (Connection.http instanceof Axios) {
+    private static init<T, D>(defaultConfig: CreateAxiosDefaults<D> = {}) {
+        if (Connection.http) {
             return Connection.http;
         }
 
         // Connection.http = new Http(import.meta.env.VITE_API_URL as string);
         Connection.http = axios.create({ ...defaultConfig, baseURL: import.meta.env.VITE_API_URL as string });
 
-        // Before request
+        Connection.beforeRequestInterceptor<D>();
+        Connection.afterResponseInterceptor<T, D>();
+
+        console.log('Connection is already initialized');
+
+        return Connection.http;
+    }
+
+    private static beforeRequestInterceptor<D>() {
         Connection.http.interceptors.request.use((config: InternalAxiosRequestConfig<D>) => {
             if (Connection.bearerToken) {
                 config.headers.Authorization = `Bearer ${Connection.bearerToken}`;
@@ -47,28 +55,38 @@ export default class Connection {
 
             return config;
         });
+    }
 
-        // After response
+    private static afterResponseInterceptor<T, D>() {
         Connection.http.interceptors.response.use(
             (response: AxiosResponse<T, D>) => {
                 return response;
             },
-            (error: AxiosError<ResponseError<T>, D>): Promise<ApiError<T, D>> => {
+            (error: AxiosError<Response<T>, D>) => {
                 const { response } = error;
 
-                const message =
-                    response?.status === 500 ? 'Error interno del sistema, intente más tarde' : response?.data.message;
+                if (!response) {
+                    return Promise.reject<Response<T>>({
+                        error: true,
+                        message: 'Something went wrong',
+                        code: 500,
+                        data: null,
+                        axiosError: error,
+                    });
+                }
 
-                return Promise.reject({
+                const { data } = response;
+
+                return Promise.reject<Response<T>>({
                     error: true,
-                    message: message || 'Something went wrong',
-                    code: response?.data.code || 500,
-                    data: response?.data.data || null,
+                    message: data?.message || 'Something went wrong',
+                    code: data?.code || 500,
+                    data: data?.data || null,
                     axiosError: error,
-                } as ApiError<T, D>);
+                });
             },
         );
-
-        return Connection.http;
     }
 }
+
+export default Connection;
